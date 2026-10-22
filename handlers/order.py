@@ -89,7 +89,7 @@ async def add_order_to_cart(callback : CallbackQuery, state: FSMContext):
         await add_total_price_order(
             db=db,
             order_id=order.id if order_db is None else order_db.id,
-            item_total_price=order_items.price
+            total_price=order_items.price
         )
     await callback.answer("محصول به سبد اضافه شد! 🛒")
     await state.clear()
